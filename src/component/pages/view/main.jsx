@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-
-function App() {
+import './main.css'; 
+function main() {
   const [number, setNumber] = useState([]);
  
   const updateNumber = (value) => {
@@ -31,7 +31,7 @@ function App() {
     return digits;
   }
   return (
-    <div className='App'>
+    <div className='main'>
       <div className='displayNumber'>
         <div className='display'>
           {/* {result ? <span>(0)</span> : ''} */}
@@ -47,6 +47,6 @@ function App() {
   );
 }
 
-export default App;
+export default main;
 
 
