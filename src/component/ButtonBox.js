@@ -1,11 +1,11 @@
 import React from 'react'
-
-const MainButton=(props)=> {
+import './'
+const ButtonBox=(props)=> {
     return (
       <button onClick= {props.onClick} className={props.className}>
-      <p>{props.title}</p>
+      <p>{props.customClass}</p>
       </button>
  
     )
   }
-  export default MainButton;
+  export default ButtonBox;
