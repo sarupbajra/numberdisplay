@@ -9,7 +9,7 @@ export default function Welcome() {
         <div className='arr-right'>
             <h1>Welcome-page</h1>
             <div>
-              <button onClick={()=>navigate("/main")} id= 'navigate'><i class="fa fa-solid fa-arrow-right"></i></button>
+              <button onClick={()=>navigate("/main")} id= 'navigate'><i className="fa fa-solid fa-arrow-right"></i></button>
             </div>
 
         </div>

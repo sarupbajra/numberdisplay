@@ -1,42 +1,45 @@
 import React, { useState } from 'react';
+import TextInput from "../../component/TextInput";
+import KeyPad from "../../component/KeyPad";
 import './main.css'
 const NumberInput = () => {
   const [value, setValue] = useState('');
+  const numbers =[1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
   const handleChange = (event) => {
+    console.log("changable",event.target.value)
+    setValue(event.target.value);
     const inputValue = event.target.value;
+    console.log("eventafter",inputValue)
+   
     const numberRegex = /^[0-9\b]+$/; 
-
-    if (numberRegex.test(inputValue)) {
-      setValue(inputValue);
+     
+    if (numberRegex.test(event.target.value)) {
+      console.log("eventregex",event.target.value)
+      setValue(event.target.value);
     }
+   
   };
 
   const handleButtonClick = (number) => {
     setValue((prevValue) => prevValue + number);
   };
+
+  console.log("value",value)
   const handleBackspace =() => {
+    console.log("backedhandle",value)
     setValue((preValue)=> preValue.slice(0, -1));
   }
 
   return (
     <div className="number-input">
-      <input
-        type="text"
-        value={value}
-        onChange={handleChange}
-        placeholder="Enter only numbers"/>
-      <div className="digits">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((number) => (
-          <button
-            key={number}
-            onClick={() => handleButtonClick(number)}
-          >
-            {number}
-          </button>
-        ))}
-        <button onClick={handleBackspace}>C</button>
-      </div>
+      <TextInput   textValue={value} handleChangeText={(e)=>handleChange(e)}/>
+      {/* <KeyPad number={numbers}/> */}
+     <div className="key-pad">
+      <KeyPad ButtonClick="numbers" onClick={()=>handleButtonClick("")}/>
+      <KeyPad handleBackspace="Backspace" onClick={()=>handleBackspace("Backspace")}/>
+
+     </div>
     </div>
   );
 };
