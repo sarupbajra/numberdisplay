@@ -25,7 +25,6 @@ const NumberInput = () => {
     setValue((prevValue) => prevValue + number);
   };
 
-  console.log("value",value)
   const handleBackspace =() => {
     console.log("backedhandle",value)
     setValue((preValue)=> preValue.slice(0, -1));
@@ -36,7 +35,7 @@ const NumberInput = () => {
       <TextInput   textValue={value} handleChangeText={(e)=>handleChange(e)}/>
       {/* <KeyPad number={numbers}/> */}
      <div className="key-pad">
-      <KeyPad ButtonClick="numbers" onClick={()=>handleButtonClick("")}/>
+      <KeyPad number ={numbers} ButtonClick= {numbers} onClick={(number)=>this.handleButtonClick(number)}/>
       <KeyPad handleBackspace="Backspace" onClick={()=>handleBackspace("Backspace")}/>
 
      </div>

@@ -6,8 +6,7 @@ export default function KeyPad(props) {
     {props.number.map((number,index) => (
       <button
         key={index}
-        onClick={props.handleButtonClick(number)}
-      >
+        onClick={props.handleButtonClick(number)}>
         <p>{props.ButtonClick}</p>
       </button>
     ))}
