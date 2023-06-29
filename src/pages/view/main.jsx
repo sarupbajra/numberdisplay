@@ -4,7 +4,7 @@ import KeyPad from "../../component/KeyPad";
 import './main.css'
 const NumberInput = () => {
   const [value, setValue] = useState('');
-  const numbers =[1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  const numbers =["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
   const handleChange = (event) => {
     console.log("changable",event.target.value)
@@ -22,6 +22,7 @@ const NumberInput = () => {
   };
 
   const handleButtonClick = (number) => {
+    console.log("numverClicked",number)
     setValue((prevValue) => prevValue + number);
   };
 
@@ -33,11 +34,11 @@ const NumberInput = () => {
   return (
     <div className="number-input">
       <TextInput   textValue={value} handleChangeText={(e)=>handleChange(e)}/>
-      {/* <KeyPad number={numbers}/> */}
+    
      <div className="key-pad">
-      <KeyPad number ={numbers} ButtonClick= {numbers} onClick={(number)=>this.handleButtonClick(number)}/>
-      <KeyPad handleBackspace="Backspace" onClick={()=>handleBackspace("Backspace")}/>
-
+      <KeyPad number ={numbers}  onClick={(number)=>handleButtonClick(number)}/>
+      <KeyPad onClickBackSpace={()=>handleBackspace()}/> 
+      {/* handleBackspace="Backspace" */}
      </div>
     </div>
   );
